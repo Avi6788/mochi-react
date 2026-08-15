@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap');
+
+:root{
+  --cream:#FFFBF2; --ink:#2E2B27; --bamboo-dk:#5C8C4E; --blush:#F6B8B0;
+  --shadow: 0 14px 30px rgba(60,80,60,0.16);
+}
+*{box-sizing:border-box;}
+html,body,#root{margin:0;height:100%;}
+body{
+  font-family:'Quicksand',sans-serif;
+  background:linear-gradient(180deg,#F4F1E8,#DCE9DF);
+  min-height:100%; display:flex; align-items:center; justify-content:center;
+  padding:20px; color:var(--ink);
+}
+.scene{
+  width:100%; max-width:470px; background:var(--cream); border-radius:32px;
+  box-shadow:var(--shadow); padding:20px 20px 24px; border:1px solid rgba(0,0,0,0.04);
+}
+h1{font-family:'Baloo 2',sans-serif; font-size:1.4rem; text-align:center; margin:2px 0 0;}
+.sub{text-align:center; font-size:0.84rem; color:#7A7568; margin:2px 0 12px; min-height:18px;}
+
+.stats{display:flex; gap:8px; margin-bottom:12px;}
+.stat{flex:1; background:#fff; border-radius:14px; padding:7px 9px; box-shadow:inset 0 0 0 1px rgba(0,0,0,0.04);}
+.stat-label{display:flex; justify-content:space-between; align-items:center; font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:#8B8577; margin-bottom:4px;}
+.status-dot{width:6px; height:6px; border-radius:50%;}
+.dot-good{background:#7FBF6B;}
+.dot-warn{background:#E8B84B;}
+.dot-bad{background:#E06A5C;}
+
+.bubble-slot{display:flex; justify-content:center; min-height:30px; margin-bottom:2px;}
+.bubble{background:#fff; border-radius:14px; padding:6px 14px; font-size:0.78rem; font-weight:600; box-shadow:0 4px 12px rgba(0,0,0,0.08); color:var(--ink);}
+.bar{height:7px; background:#EFEBE0; border-radius:6px; overflow:hidden;}
+.bar-fill{height:100%; border-radius:6px;}
+.fill-hunger{background:linear-gradient(90deg,#F6B8B0,#F19489);}
+.fill-joy{background:linear-gradient(90deg,#F1C875,#E8AE3F);}
+.fill-energy{background:linear-gradient(90deg,#9AC7E0,#6FA9CC);}
+
+.stage{position:relative; height:300px; border-radius:22px; overflow:hidden; margin-bottom:14px;}
+.sky{position:absolute; inset:0; transition:background 3s ease;}
+.sky-morning{background:linear-gradient(180deg,#FFE3C4 0%,#FFC9A8 30%,#CDE8EF 100%);}
+.sky-day{background:linear-gradient(180deg,#BFE3F5 0%,#DFF2EA 60%,#EAF6E8 100%);}
+.sky-evening{background:linear-gradient(180deg,#FFB88C 0%,#F98CA0 35%,#8E7AA8 100%);}
+.sky-night{background:linear-gradient(180deg,#1B2242 0%,#2B2F5C 45%,#3B3F73 100%);}
+
+.celestial{position:absolute; width:38px; height:38px; border-radius:50%;}
+.celestial.sun{background:radial-gradient(circle,#FFF3C2,#FFCE6B); box-shadow:0 0 24px 10px rgba(255,206,107,0.45);}
+.celestial.moon{background:radial-gradient(circle,#F5F3FF,#D6D3F0); box-shadow:0 0 18px 8px rgba(214,211,240,0.4);}
+
+.stars{position:absolute; inset:0; pointer-events:none;}
+.star{position:absolute; width:2.5px; height:2.5px; background:#fff; border-radius:50%;}
+
+.cloud-deco{position:absolute; background:#fff; border-radius:50px; opacity:0.85;}
+.firefly{position:absolute; width:4px; height:4px; border-radius:50%; background:#F3E29A; box-shadow:0 0 6px 2px rgba(243,226,154,0.8); pointer-events:none;}
+.rain-layer{position:absolute; inset:0; overflow:hidden; pointer-events:none;}
+.drop{position:absolute; width:2px; height:14px; background:rgba(180,205,230,0.75); border-radius:2px;}
+
+.ground{position:absolute; bottom:0; left:0; right:0; height:78px; background:linear-gradient(180deg,#B7DDB0,#8FC086); border-top-left-radius:50% 22px; border-top-right-radius:50% 22px;}
+
+.clump{position:absolute; bottom:66px; cursor:pointer;}
+.stalk{position:relative; display:inline-block; width:11px; background:linear-gradient(180deg,#9ED17F,var(--bamboo-dk)); border-radius:7px; margin:0 2px;}
+.stalk::before{content:'🍃'; position:absolute; top:-13px; left:-3px; font-size:14px;}
+
+.particle{position:absolute; font-size:16px; pointer-events:none;}
+
+.panda{position:absolute; bottom:60px; width:118px; height:118px; transform:translateX(-50%); cursor:pointer; z-index:5;}
+.panda.breathing{animation:breathe 2.6s ease-in-out infinite;}
+@keyframes breathe{0%,100%{transform:translateX(-50%) scale(1);}50%{transform:translateX(-50%) scale(1.02);}}
+.ear{position:absolute; width:27px; height:27px; background:var(--ink); border-radius:50%; top:-2px;}
+.ear.left{left:4px;} .ear.right{right:4px;}
+.head{position:absolute; top:4px; left:50%; transform:translateX(-50%); width:90px; height:80px; background:#FBFAF6; border-radius:50% 50% 46% 46%;}
+.patch{position:absolute; width:27px; height:32px; background:var(--ink); border-radius:50%; top:18px;}
+.patch.left{left:8px; transform:rotate(-8deg);} .patch.right{right:8px; transform:rotate(8deg);}
+.eye{position:absolute; width:7px; background:#1C1B19; top:30px;}
+.eye.left{left:21px;} .eye.right{right:21px;}
+.blush{position:absolute; width:11px; height:7px; background:var(--blush); border-radius:50%; top:42px;}
+.blush.left{left:13px;} .blush.right{right:13px;}
+.nose{position:absolute; width:8px; height:6px; background:#1C1B19; border-radius:50%; top:47px; left:50%; transform:translateX(-50%);}
+.mouth{position:absolute; top:53px; left:50%; transform:translateX(-50%); width:13px; height:6px; border-bottom:2.5px solid #1C1B19; border-radius:0 0 13px 13px;}
+.mouth.chew{width:10px; height:8px; border-radius:50%; border:none; background:#1C1B19;}
+.mouth.yawn{width:16px; height:14px; border-radius:50%; border:none; background:#1C1B19;}
+.body{position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:94px; height:62px; background:#FBFAF6; border-radius:48% 48% 44% 44%;}
+.armpatch{position:absolute; width:29px; height:29px; background:var(--ink); border-radius:50%; bottom:5px;}
+.armpatch.left{left:-5px;} .armpatch.right{right:-5px;}
+
+.stage-controls{position:absolute; top:10px; left:10px; right:10px; display:flex; justify-content:space-between; z-index:8;}
+.pill{background:rgba(255,255,255,0.75); backdrop-filter:blur(3px); border:none; border-radius:20px; padding:6px 11px; font-family:'Baloo 2',sans-serif; font-size:0.72rem; font-weight:700; cursor:pointer; text-transform:capitalize; box-shadow:0 3px 8px rgba(0,0,0,0.1); color:var(--ink);}
+
+.controls{display:flex; gap:10px;}
+button.action{flex:1; font-family:'Baloo 2',sans-serif; font-weight:700; font-size:0.88rem; padding:12px 8px; border:none; border-radius:16px; cursor:pointer; color:#fff; box-shadow:0 6px 14px rgba(0,0,0,0.08);}
+button.action:active{transform:translateY(2px) scale(0.98);}
+.btn-feed{background:linear-gradient(180deg,#8FCB78,var(--bamboo-dk));}
+.btn-pet{background:linear-gradient(180deg,#F6B8B0,#E9887B);}
+.btn-sleep{background:linear-gradient(180deg,#9AC7E0,#5F94B8);}
+button:disabled{opacity:0.5; cursor:default;}
+.footer-note{text-align:center; font-size:0.7rem; color:#A39C8C; margin-top:11px;}
+
+/* --- Mobile responsiveness --- */
+@media (max-width: 420px) {
+  .scene { padding: 16px 14px 20px; border-radius: 24px; }
+  .stage { height: 250px; }
+  .panda { width: 96px; height: 96px; bottom: 54px; }
+  button.action { padding: 14px 6px; font-size: 0.85rem; }
+  .pill { padding: 8px 12px; font-size: 0.75rem; }
+  h1 { font-size: 1.25rem; }
+}
+
+/* ── WeatherEffects ───────────────────────────────────── */
+.weather-overlay{
+  position:absolute; inset:0; pointer-events:none;
+  background:rgba(60,70,90,1); /* opacity animated by Framer Motion */
+  opacity:0;
+}
+
+/* Snow */
+.snow-layer{ position:absolute; inset:0; pointer-events:none; }
+.snowflake{
+  position:absolute; border-radius:50%;
+  background:rgba(255,255,255,0.92);
+  box-shadow:0 0 4px 1px rgba(220,235,255,0.5);
+}
+
+/* Thunder flash */
+.thunder-flash{
+  position:absolute; inset:0; pointer-events:none;
+  background:rgba(200,210,255,1);
+  z-index:10;
+}
+
+/* Wind lines */
+.wind-layer{ position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.wind-line{
+  position:absolute;
+  height:1.5px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+  border-radius:2px;
+  transform:rotate(-8deg);
+}
+
+/* Heavy rain drop — slightly thicker and longer */
+.drop-heavy{ width:2.5px !important; height:20px !important; }
